@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMPSA Career Hub | Bina Legasi Anda</title>
+    <style>
+        /* Tetapan Asas */
+        :root {
+            --primary-blue: #004b87;
+            --secondary-blue: #0073CF;
+            --accent-orange: #f39c12;
+            --light-grey: #f4f6f9;
+            --text-dark: #2c3e50;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Navbar & Logo Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .navbar-brand img {
+            height: 45px; 
+            width: auto;
+            border: none;
+            border-radius: 0;
+        }
+        
+        .navbar-brand h1 { margin: 0; color: var(--primary-blue); font-size: 24px; }
+        
+        .nav-links a { margin-left: 20px; text-decoration: none; color: #555; font-weight: 600; }
+        .nav-links a:hover { color: var(--secondary-blue); }
+        .login-btn { border: 2px solid var(--primary-blue); padding: 5px 15px; border-radius: 4px; color: var(--primary-blue) !important; }
+        .login-btn:hover { background-color: var(--primary-blue); color: white !important; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 75, 135, 0.8), rgba(0, 75, 135, 0.8)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h2 { font-size: 2.5em; margin-bottom: 10px; text-transform: uppercase; }
+        .hero p { font-size: 1.2em; max-width: 600px; margin: 0 auto 30px auto; }
+        .btn-primary {
+            background-color: var(--accent-orange);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-primary:hover { background-color: #d68910; }
+
+        /* Persona Hub (Cards) */
+        .section-title { text-align: center; margin: 50px 0 20px 0; font-size: 2em; color: var(--primary-blue); }
+        .persona-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px 5%;
+        }
+        .persona-card {
+            background-color: var(--light-grey);
+            border-top: 4px solid var(--secondary-blue);
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .persona-card:hover { transform: translateY(-5px); }
+        .persona-card h3 { margin-top: 0; }
+        .btn-outline {
+            display: block;
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid var(--secondary-blue);
+            color: var(--secondary-blue);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        .btn-outline:hover { background-color: var(--secondary-blue); color: white; }
+
+        /* Quick-Drop Form & Job Board Layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 50px 5%;
+            gap: 40px;
+        }
+
+        /* Registration Zone */
+        .register-zone {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+            border-top: 5px solid var(--accent-orange);
+        }
+        .register-zone h3 { color: var(--primary-blue); margin-top: 0; }
+        .register-zone label { font-weight: bold; display: block; margin: 15px 0 5px 0; font-size: 14px;}
+        .register-zone input[type="text"], .register-zone input[type="email"], .register-zone input[type="password"], .register-zone select, .register-zone input[type="file"] {
+            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px;
+        }
+        .btn-submit {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-submit:hover { background-color: var(--secondary-blue); }
+
+        /* Job Board */
+        .job-board {
+            flex: 2;
+            min-width: 400px;
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white;}
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: var(--light-grey); color: var(--primary-blue); }
+        .btn-apply {
+            background-color: #27ae60; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 13px; cursor: pointer; border: none;
+        }
+        .btn-apply:hover { background-color: #219653; }
+
+        /* Footer */
+        .footer { text-align: center; padding: 20px; background-color: #222; color: #888; margin-top: 50px; font-size: 13px; }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h2 { font-size: 2em; }
+            .main-content { flex-direction: column; }
+            .job-board { min-width: 100%; overflow-x: auto; }
+            .navbar-brand h1 { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-brand">
+            <img src="https://lh3.googleusercontent.com/d/1TxhS-FoSJqFbhM8luOqcIEVcOW1hM8Kd=s1000" alt="Logo UMPSA">
+            <h1>UMPSA Careers</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#">Utama</a>
+            <a href="#jobs">Kekosongan Semasa</a>
+            <a href="#talent-pool" class="login-btn">Log Masuk / Daftar</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h2>Bentuk Masa Hadapan Teknologi & Industri</h2>
+        <p>Jangan sekadar mencari kerja. Bina legasi anda bersama universiti teknikal terulung di Malaysia.</p>
+        <a href="#jobs" class="btn-primary">Lihat Kekosongan Jawatan</a>
+    </div>
+
+    <h2 class="section-title">Teroka Laluan Kerjaya Anda</h2>
+    <div class="persona-container">
+        <div class="persona-card">
+            <h3>👨‍🏫 Akademik & Penyelidikan</h3>
+            <p>Sertai kami sebagai Pensyarah, Pakar Industri (Prof. of Practice), atau Penyelidik berimpak tinggi.</p>
+            <a href="#jobs" class="btn-outline">Teroka Jawatan Akademik</a>
+        </div>
+        <div class="persona-card">
+            <h3>🏢 Profesional & Pentadbiran</h3>
+            <p>Bina kepakaran anda bersama pasukan operasi, kewangan, sumber manusia dan IT kami.</p>
+            <a href="#jobs" class="btn-outline">Teroka Jawatan Pentadbiran</a>
+        </div>
+        <div class="persona-card">
+            <h3>🌟 Bakat Masa Hadapan</h3>
+            <p>Peluang hebat untuk graduan baharu melalui penempatan latihan industri dan program perantis.</p>
+            <a href="#jobs" class="btn-outline">Teroka Jawatan Eksekutif</a>
+        </div>
+    </div>
+
+    <div class="main-content" id="jobs">
+        
+        <div class="register-zone" id="talent-pool">
+            <h3>Pendaftaran Talent Pool & Notifikasi Jawatan</h3>
+            <p style="font-size: 13px; color: #555;">Daftar akaun untuk memohon jawatan kosong dan terima <b>Notifikasi Emel Automatik</b> apabila terdapat kekosongan dalam bidang kepakaran anda.</p>
+            
+            <form onsubmit="registerUser(event)">
+                <label>Nama Penuh:</label>
+                <input type="text" placeholder="Masukkan nama penuh anda" required>
+                
+                <label>Alamat Emel (Log Masuk):</label>
+                <input type="email" placeholder="contoh@emel.com" required>
+                
+                <label>Cipta Kata Laluan:</label>
+                <input type="password" placeholder="Minima 8 aksara" required>
+                
+                <label>Bidang Kepakaran & Minat (Untuk Automasi Sistem):</label>
+                <select id="bidangPilihan" required>
+                    <option value="">-- Sila Pilih Kepakaran Anda --</option>
+                    <option value="Kejuruteraan & Teknologi">Akademik: Kejuruteraan & Teknologi</option>
+                    <option value="Sains Komputer & IT">Akademik: Sains Komputer & IT</option>
+                    <option value="Pengurusan & Perniagaan">Akademik: Pengurusan & Perniagaan</option>
+                    <option value="Sains Gunaan & Matematik">Akademik: Sains Gunaan & Matematik</option>
+                    <option value="Pentadbiran Umum (HR/Kewangan)">Profesional: Pentadbiran / Kewangan / HR</option>
+                    <option value="Penyelidikan Industri">Penyelidikan / Pasca-Doktoral / Pakar Industri</option>
+                </select>
+                
+                <label>Muat Naik Resume / CV (Format PDF):</label>
+                <input type="file" accept=".pdf" required>
+                
+                <button type="submit" class="btn-submit">Daftar & Aktifkan Notifikasi</button>
+            </form>
+            <p style="font-size: 13px; text-align: center; margin-top: 15px;">Sudah mempunyai akaun? <a href="#" onclick="alert('Ini akan memaparkan kotak log masuk.')" style="color: var(--secondary-blue);">Log Masuk Di Sini</a></p>
+        </div>
+
+        <div class="job-board">
+            <h3 style="color: var(--primary-blue); margin-top:0;">Kekosongan Jawatan Terkini</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jawatan</th>
+                        <th>Kategori</th>
+                        <th>Fakulti / Jabatan</th>
+                        <th>Tindakan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Professor of Practice (Robotics)</b><br><small style="color:#777">Tarikh Tutup: 15 Ogos 2026</small></td>
+                        <td>Akademik (Industri)</td>
+                        <td>FTKMA</td>
+                        <td><button class="btn-apply" onclick="applyJob()">Mohon</button></td>
+                    </tr>
+                    <tr>
+                        <td><b>Ketua Penolong Pendaftar (HR)</b><br><small style="color:#777">Tarikh Tutup: 20 Ogos 2026</small></td>
+                        <td>Pentadbiran</td>
+                        <td>Jabatan Pendaftar</td>
+                        <td><button class="btn-apply" onclick="applyJob()">Mohon</button></td>
+                    </tr>
+                    <tr>
+                        <td><b>Pensyarah Kanan (Kecerdasan Buatan)</b><br><small style="color:#777">Tarikh Tutup: 30 Ogos 2026</small></td>
+                        <td>Akademik</td>
+                        <td>Fakulti Komputeran</td>
+                        <td><button class="btn-apply" onclick="applyJob()">Mohon</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        Hak Cipta Terpelihara © 2026 Universiti Malaysia Pahang Al-Sultan Abdullah (UMPSA).<br>
+        Dibangunkan berasaskan Model Penanda Aras Pasaran HR.
+    </div>
+
+    <script>
+        // Fungsi simulasi Pendaftaran ke dalam Talent Pool
+        function registerUser(e) {
+            e.preventDefault();
+            var bidang = document.getElementById("bidangPilihan").value;
+            alert("PENDAFTARAN BERJAYA!\n\nAnda kini berdaftar dalam UMPSA Talent Pool.\nSistem automasi HR kami akan menghantar notifikasi emel kepada anda sebaik sahaja terdapat kekosongan baharu dalam bidang: [" + bidang + "].\n\nAnda kini boleh log masuk untuk memohon jawatan.");
+        }
+
+        // Fungsi simulasi apabila klik butang Mohon (wajib log masuk)
+        function applyJob() {
+            alert("SILA LOG MASUK TERLEBIH DAHULU.\n\nSistem mengesan anda belum log masuk ke dalam akaun. Sila masukkan emel dan kata laluan anda di bahagian 'Log Masuk / Daftar' untuk meneruskan permohonan.");
+        }
+    </script>
+</body>
+</html>
