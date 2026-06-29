@@ -113,7 +113,25 @@
         }
         .btn-outline:hover { background-color: var(--secondary-blue); color: white; }
 
-        /* Quick-Drop Form & Job Board Layout */
+        /* EVP Section (Budaya & Faedah UMPSA) */
+        .evp-section {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 50px 5%;
+            margin-top: 50px;
+        }
+        .evp-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+            gap: 20px;
+        }
+        .evp-item { width: 200px; }
+        .evp-item span { font-size: 40px; display: block; margin-bottom: 10px;}
+        .evp-item h4 { margin: 0 0 10px 0; font-size: 1.2em; color: var(--accent-orange);}
+
+        /* Registration Form & Job Board Layout */
         .main-content {
             display: flex;
             flex-wrap: wrap;
@@ -165,7 +183,7 @@
         .btn-apply:hover { background-color: #219653; }
 
         /* Footer */
-        .footer { text-align: center; padding: 20px; background-color: #222; color: #888; margin-top: 50px; font-size: 13px; }
+        .footer { text-align: center; padding: 20px; background-color: #222; color: #888; font-size: 13px; }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
@@ -186,7 +204,7 @@
         </div>
         <div class="nav-links">
             <a href="#">Utama</a>
-            <a href="#jobs">Kekosongan Semasa</a>
+            <a href="#budaya">Budaya UMPSA</a>
             <a href="#talent-pool" class="login-btn">Log Masuk / Daftar</a>
         </div>
     </div>
@@ -213,6 +231,32 @@
             <h3>🌟 Bakat Masa Hadapan</h3>
             <p>Peluang hebat untuk graduan baharu melalui penempatan latihan industri dan program perantis.</p>
             <a href="#jobs" class="btn-outline">Teroka Jawatan Eksekutif</a>
+        </div>
+    </div>
+
+    <div class="evp-section" id="budaya">
+        <h2 style="text-align: center; margin-top: 0; margin-bottom: 40px;">Kenapa Bina Kerjaya Bersama UMPSA?</h2>
+        <div class="evp-container">
+            <div class="evp-item">
+                <span>⚖️</span>
+                <h4>Keseimbangan Kehidupan</h4>
+                <p style="font-size:14px;">Waktu bekerja fleksibel dan perlindungan perubatan keluarga yang komprehensif.</p>
+            </div>
+            <div class="evp-item">
+                <span>🚀</span>
+                <h4>Impak Industri</h4>
+                <p style="font-size:14px;">Jalinan kolaborasi rapat dengan syarikat gergasi global (Bosch, Petronas).</p>
+            </div>
+            <div class="evp-item">
+                <span>📚</span>
+                <h4>Pembangunan Berterusan</h4>
+                <p style="font-size:14px;">Tajaan pengajian lanjutan dan program mobiliti antarabangsa.</p>
+            </div>
+            <div class="evp-item">
+                <span>🌴</span>
+                <h4>Kampus Hijau</h4>
+                <p style="font-size:14px;">Kemudahan sukan premium, pusat penjagaan, dan ekosistem kerja yang harmoni.</p>
+            </div>
         </div>
     </div>
 
@@ -248,7 +292,7 @@
                 
                 <button type="submit" class="btn-submit">Daftar & Aktifkan Notifikasi</button>
             </form>
-            <p style="font-size: 13px; text-align: center; margin-top: 15px;">Sudah mempunyai akaun? <a href="#" onclick="alert('Ini akan memaparkan kotak log masuk.')" style="color: var(--secondary-blue);">Log Masuk Di Sini</a></p>
+            <p style="font-size: 13px; text-align: center; margin-top: 15px;">Sudah mempunyai akaun? <a href="javascript:void(0)" onclick="alert('Ini akan memaparkan kotak log masuk.')" style="color: var(--secondary-blue);">Log Masuk Di Sini</a></p>
         </div>
 
         <div class="job-board">
